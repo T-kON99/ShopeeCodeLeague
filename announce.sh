@@ -1,0 +1,1 @@
+cd /home/TkON/ShopeeCodeLeague && source env/bin/activate && python ShopeeCodeLeague.py
