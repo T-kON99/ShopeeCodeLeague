@@ -7,8 +7,7 @@ workshops to discord instead. Only confirmed workshop will be announced.
 
 ### Gmail Credentials
 
-Obtain these from your Gmail account. Follow steps at [here](). Name the file as `credentials.json`.
-Alternatively you can change it from the source code itself.
+Obtain these from your Gmail account. Follow steps at [here](https://developers.google.com/gmail/api/quickstart/python) and click enable the Gmail API. Name the file as `credentials.json`. Alternatively you can change it from the source code itself.
 
 ### Discord Webhook
 
