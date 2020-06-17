@@ -117,7 +117,7 @@ if __name__ == '__main__':
                 },
             ],
             'footer': {
-                'text': 'Shopee Code Leauge #2020'
+                'text': 'Shopee Code League #2020'
             },
             'color': 0x54ed4e,
             'image': {
