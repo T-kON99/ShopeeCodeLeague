@@ -32,7 +32,7 @@ def main():
                 filtered = [_.decode() for _ in decoded_body_content.strip().split(b'\r\n')[0:-1] if len(_)]
                 event_name, event_creator, *_ = subject.lstrip('[Confirmation]').strip().split('by')
                 event_organizer, *_ = [_.strip() for _ in event_creator.split('on')]
-                event_details['title'] = event_name
+                event_details['title'] = event_name.strip()
                 event_details['organizer'] = event_organizer
                 for sentence in filtered:
                     if sentence.startswith('Date'):
@@ -69,9 +69,9 @@ if __name__ == '__main__':
     with open('./announced.json', mode='r') as file:
         announced_events = json.load(file)
     for event in sorted(all_events, key=lambda x: x['start']):
-        if event['title'] in announced_events:
+        if f"{event['title']}{event['date']}" in announced_events:
             continue
-        announced_events[event['title']] = event
+        announced_events[f"{event['title']}{event['date']}"] = event
         url_regex = re.compile(r'https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)')
         zoom_link = [_.strip('()') for _ in event['step'][0].split(' ') if _.startswith('(')][0]
         meeting_id = event['step'][4].split('"')[1]
